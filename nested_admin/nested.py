@@ -203,7 +203,7 @@ class NestedInlineAdminFormsetMixin(NestedAdminMixin):
                         "pk": self.opts.opts.pk.name,
                     },
                     "inlineModel": self.inline_model_id,
-                    "sortableOptions": self.opts.sortable_options,
+                    "sortableOptions": getattr(self.opts, 'sortable_options', {'disabled': True}),
                 },
             }
         )
